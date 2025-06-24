@@ -12,7 +12,7 @@ A powerful Obsidian plugin that allows you to display dynamic templates in your 
 - **Hide Properties Option**: Optionally hide the frontmatter section in notes with mirrors
 - **Live Preview Support**: Works seamlessly in Obsidian's Live Preview mode
 - **Smart Position Tracking**: Bottom-positioned widgets now correctly follow text as you type
-- **Performance Optimized**: Intelligent caching and debouncing for smooth editing experience
+- **Performance Optimized**: Intelligent caching and debouncing for smooth editing experience.
 
 ## Installation
 

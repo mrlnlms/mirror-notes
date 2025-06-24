@@ -98,7 +98,7 @@ export default class MirrorUIPlugin extends Plugin {
     // Listener para mudanças nas configurações com debounce maior
     this.registerEvent(
       this.app.vault.on('modify', (file) => {
-        if (file.path === '.obsidian/plugins/sample-plugin/data.json') {
+        if (file.path === `.obsidian/plugins/${this.manifest.id}/data.json`) {
           // Configurações mudaram, usar debounce para evitar múltiplas atualizações
           if (this.settingsUpdateDebounce) {
             clearTimeout(this.settingsUpdateDebounce);
@@ -168,27 +168,67 @@ export default class MirrorUIPlugin extends Plugin {
     const hasOurExtension = cm.state.field(mirrorStateField, false);
     
     if (!hasOurExtension) {
+      // Limpar qualquer widget órfão antes de adicionar novo
+      const editorEl = cm.dom;
+      if (editorEl) {
+        editorEl.querySelectorAll('.mirror-ui-widget').forEach((widget: Element) => {
+          console.log('[MirrorNotes] Removing orphan widget');
+          widget.remove();
+        });
+      }
+      
       cm.dispatch({
         effects: StateEffect.appendConfig.of([
           mirrorStateField
-          // Removido mirrorDecorations - agora fornecido pelo StateField
         ])
       });
     }
-    // Remover o forced update automático ao setup do editor
-    // isso estava causando muito flicker
   }
 
   onunload() {
+    console.log('[MirrorNotes] Unloading plugin...');
+    
+    // 1. Limpar todos os widgets DOM antes de descarregar
+    document.querySelectorAll('.mirror-ui-widget').forEach(widget => {
+      widget.remove();
+    });
+    
+    // 2. Remover extensões do CodeMirror de TODOS os editores
+    this.app.workspace.iterateAllLeaves(leaf => {
+      if (leaf.view instanceof MarkdownView) {
+        // @ts-ignore
+        const cm = leaf.view.editor?.cm;
+        if (cm) {
+          // Tentar remover a extensão se possível
+          try {
+            // Forçar uma atualização vazia para limpar decorations
+            cm.dispatch({
+              effects: StateEffect.reconfigure.of([])
+            });
+          } catch (e) {
+            console.error('[MirrorNotes] Error cleaning editor:', e);
+          }
+        }
+      }
+    });
+    
+    // 3. Limpar caches globais
+    if ((window as any).mirrorUICleanup) {
+      (window as any).mirrorUICleanup();
+    }
+    
+    // 4. Limpar referências
     this.activeEditors.clear();
     
-    // Limpar timeouts
+    // 5. Limpar timeouts
     if (this.settingsUpdateDebounce) {
       clearTimeout(this.settingsUpdateDebounce);
     }
     
-    // Limpar referência global
+    // 6. Limpar referência global
     delete (window as any).mirrorUIPluginInstance;
+    
+    console.log('[MirrorNotes] Plugin unloaded successfully');
   }
 }
 
