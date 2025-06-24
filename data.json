@@ -1,0 +1,48 @@
+{
+  "enable_getting_started": false,
+  "global_settings": false,
+  "enable_global_live_preview_mode": false,
+  "global_settings_live_preview_note": "",
+  "global_settings_live_preview_pos": "top",
+  "enable_global_preview_mode": false,
+  "global_settings_preview_note": "",
+  "global_settings_preview_pos": "top",
+  "global_settings_overide": false,
+  "global_settings_hide_props": false,
+  "customMirrors": [
+    {
+      "id": "69b770f7-6381-4e00-9268-f2c9ab70d95e",
+      "name": "Mirror 1",
+      "openview": true,
+      "enable_custom_live_preview_mode": true,
+      "custom_settings_live_preview_note": "templates/test-template.md",
+      "custom_settings_live_preview_pos": "top",
+      "enable_custom_preview_mode": true,
+      "custom_settings_preview_note": "templates/test-template.md",
+      "custom_settings_preview_pos": "top",
+      "custom_settings_overide": false,
+      "custom_settings_hide_props": false,
+      "filterFiles": [],
+      "filterFolders": [
+        {
+          "folder": "",
+          "template": ""
+        }
+      ],
+      "filterProps": [
+        {
+          "folder": "type",
+          "template": "project"
+        }
+      ]
+    }
+  ],
+  "folderTemplates": [
+    {
+      "templateName": "templates/test-template.md",
+      "templatePath": "templates/test-template.md",
+      "yamlAttribute": "type",
+      "yamlValue": "project"
+    }
+  ]
+}
