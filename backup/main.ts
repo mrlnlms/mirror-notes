@@ -1,6 +1,6 @@
 import { Plugin, MarkdownView, TFile, WorkspaceLeaf } from 'obsidian';
 import { StateEffect } from "@codemirror/state";
-import { mirrorStateField, toggleWidgetEffect, forceMirrorUpdateEffect } from './src/editor/mirrorState';
+import { mirrorStateField, toggleWidgetEffect, MirrorState, forceMirrorUpdateEffect } from './src/editor/mirrorState';
 import { MirrorUIPluginSettings, DEFAULT_SETTINGS, MirrorUISettingsTab } from './settings';
 
 export default class MirrorUIPlugin extends Plugin {
