@@ -1,0 +1,49 @@
+/*
+
+This CSS file will be included with your plugin, and
+available in the app when your plugin is enabled.
+
+If your plugin does not need CSS, delete this file.
+
+*/
+/* Estilo para a linha especial do Mirror UI */
+.cm-mirror-ui-line {
+  position: relative;
+  pointer-events: none;
+}
+
+/* Widget do Mirror UI */
+.mirror-ui-line-widget {
+  /* Garantir que não interfira com a edição */
+  pointer-events: auto !important;
+}
+
+/* Prevenir seleção de texto no widget */
+.mirror-ui-line-widget * {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Permitir interação com elementos específicos */
+.mirror-ui-line-widget button,
+.mirror-ui-line-widget input,
+.mirror-ui-line-widget a {
+  pointer-events: auto;
+  user-select: auto;
+}
+
+/* Animações suaves */
+.mirror-ui-line-widget {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
