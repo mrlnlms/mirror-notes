@@ -1,34 +1,29 @@
 {
   "enable_getting_started": false,
-  "global_settings": false,
-  "enable_global_live_preview_mode": false,
-  "global_settings_live_preview_note": "",
+  "global_settings": true,
+  "enable_global_live_preview_mode": true,
+  "global_settings_live_preview_note": "templates/test-template.md",
   "global_settings_live_preview_pos": "top",
-  "enable_global_preview_mode": false,
-  "global_settings_preview_note": "",
+  "enable_global_preview_mode": true,
+  "global_settings_preview_note": "templates/test-template.md",
   "global_settings_preview_pos": "top",
-  "global_settings_overide": false,
+  "global_settings_overide": true,
   "global_settings_hide_props": false,
   "customMirrors": [
     {
-      "id": "69b770f7-6381-4e00-9268-f2c9ab70d95e",
+      "id": "610f2e34-e362-4a30-bacc-abbb36135939",
       "name": "Mirror 1",
       "openview": true,
       "enable_custom_live_preview_mode": true,
-      "custom_settings_live_preview_note": "templates/test-template.md",
-      "custom_settings_live_preview_pos": "top",
+      "custom_settings_live_preview_note": "templates/s.md",
+      "custom_settings_live_preview_pos": "bottom",
       "enable_custom_preview_mode": true,
-      "custom_settings_preview_note": "templates/test-template.md",
-      "custom_settings_preview_pos": "top",
-      "custom_settings_overide": false,
+      "custom_settings_preview_note": "aha/s.md",
+      "custom_settings_preview_pos": "bottom",
+      "custom_settings_overide": true,
       "custom_settings_hide_props": false,
       "filterFiles": [],
-      "filterFolders": [
-        {
-          "folder": "",
-          "template": ""
-        }
-      ],
+      "filterFolders": [],
       "filterProps": [
         {
           "folder": "type",
